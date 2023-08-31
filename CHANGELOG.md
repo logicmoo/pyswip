@@ -1,6 +1,9 @@
 # CHANGELOG
 
-### 0.2.11 (Not Released)
+### 0.2.12 (Not Released)
+  * Extra debugging ino
+
+### 0.2.11
 
   * Improve list representations, unicode support and multiple threading usage, see: [97](https://github.com/yuce/pyswip/pull/97). Contributed by Guglielmo Gemignani.
   * Added PL_STRINGS_MARK to getAtomChars, fixes [102](https://github.com/yuce/pyswip/issues/102). Contributed by Vince Jankovics.
@@ -12,7 +15,7 @@
 
   * Synchronized type constants with SWI-Prolog.h
     update for broken compatibility changes in SWI-Prolog.h up to 0.8.3.
-  * Fix incorrect REP_* constants.  
+  * Fix incorrect REP_* constants.
   * Fixed issue [#92](https://github.com/yuce/pyswip/issues/92) (C assert)
   * Fixed issue [#90](https://github.com/yuce/pyswip/issues/90) (quoted string)
   * Fixed Variables in foreign functions not unifiable. Contributed by Michael Kasch.
@@ -50,7 +53,7 @@
   * Maintenance release of PySwip
   * Added an error to avoid opening nested queries using PySwip (SWI-Prolog does
     not allow that). The error is NestedQueryError.
-  * Added Tomasz Gryszkiewicz's patch for better finding the SWI-Prolog lib in 
+  * Added Tomasz Gryszkiewicz's patch for better finding the SWI-Prolog lib in
     Darwin
   * Solved issue 4 "Patch for a dynamic method"
   * Solved issue 5 "Patch: hash and eq methods for Atom class"
@@ -61,10 +64,10 @@
 
   * Maintenance release of PySwip
   * Solved issue "Segmentation fault when assertz-ing" (thanks to jpthompson23)
-  * Solved issue "pyswip doesn't work on cygwin" 
+  * Solved issue "pyswip doesn't work on cygwin"
   * Solved issue "Callbacks can cause segv's" (thanks to jpthompson23)
-  * Solved issue "Improve library loading" 
-  * Solved issue "sys.exit does not work when importing pyswip" 
+  * Solved issue "Improve library loading"
+  * Solved issue "sys.exit does not work when importing pyswip"
 
 ### 0.2.2
 
@@ -106,7 +109,7 @@
   * Many new additions to the core library.
   * Added `examples` directory.
   * Added examples, *coins* and *draughts*.
-  
+
 ### 0.1.1
 
   * Added `queryGenerator` to PrologRunner, `query` calls `queryGenerator`.

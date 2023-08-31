@@ -13,7 +13,7 @@ Ubuntu. The compatibility of PySwip with 7.6.4 on master is broken, so we are no
 this is fixed. In the meantime, you can use the following to install PySwip from the master branch:
 
 ```
-pip install git+https://github.com/yuce/pyswip@master#egg=pyswip
+pip install git+https://github.com/logicmoo/pyswip@master#egg=pyswip
 ```
 
 ## The End of Python 2 Support

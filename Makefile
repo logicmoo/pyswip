@@ -3,6 +3,7 @@
 build:
 	python setup.py sdist
 	python setup.py bdist_wheel --universal
+	pip install -e .[dev] --break-system-packages
 
 clean:
 	rm -rf dist build pyswip.egg-info

@@ -140,6 +140,13 @@ class Term(object):
     def __hash__(self):
         return self.handle
 
+    def __str__(self):
+        return Variable(handle=self.handle).__str__()
+
+    def __repr__(self):
+        return "(Term)" + Variable(handle=self.handle).__str__()
+
+
 
 # support unicode also in python 2
 try:
@@ -222,7 +229,7 @@ class Variable(object):
         if self.chars is not None:
             return self.chars
         else:
-            return self.__repr__()
+            return "_G%s" % self.handle
 
     def __repr__(self):
         return "Variable(%s)" % self.handle

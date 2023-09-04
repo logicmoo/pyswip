@@ -201,6 +201,33 @@ class Variable(object):
             fun = PL_unify_float
         elif type(value) == list:
             fun = PL_unify_list
+        elif isinstance(value, str):
+            putTerm(t, value)
+            return
+        elif isinstance(value, int):
+            putTerm(t, value)
+            return
+        elif isinstance(value, float):
+            putTerm(t, value)
+            return
+        elif isinstance(value, Functor):
+            putTerm(t, value)
+            return
+        elif isinstance(value, Variable):
+            putTerm(t, value)
+            return
+        elif isinstance(value, Term):
+            PL_put_term(t, value.handle)
+            return
+        elif isinstance(t, Variable):
+            value.put(t)
+            return
+        elif isinstance(value, list):
+            putList(t, value)
+            return
+        elif isinstance(value, Atom):
+            fun = PL_unify_atom
+            value = value.get_value()
         else:
             raise TypeError('Cannot unify {} with value {} due to the value unknown type {}'.
                             format(self, value, type(value)))
@@ -353,6 +380,8 @@ def putTerm(term, value):
         PL_put_atom_chars(term, value)
     elif isinstance(value, int):
         PL_put_integer(term, value)
+    elif isinstance(value, float):
+        PL_put_float(term, value)
     elif isinstance(value, Variable):
         value.put(term)
     elif isinstance(value, list):

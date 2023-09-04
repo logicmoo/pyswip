@@ -279,11 +279,11 @@ def walk(path, name):
     """
     This function is a 2-time recursive func,
     that findin file in dirs
-    
+
     :parameters:
       -  `path` (str) - Directory path
       -  `name` (str) - Name of file, that we lookin for
-      
+
     :returns:
         Path to the swipl so, path to the resource file
 
@@ -292,7 +292,7 @@ def walk(path, name):
     """
     back_path = path[:]
     path = os.path.join(path, name)
-    
+
     if os.path.exists(path):
         return path
     else:
@@ -314,7 +314,7 @@ def get_swi_ver():
     match = re.search(r'[0-9]+\.[0-9]+\.[0-9]+', swi_ver)
     if match is None:
         raise InputError('Error, type normal version')
-    
+
     return swi_ver
 
 
@@ -322,10 +322,10 @@ def _findSwiplMacOSHome():
     """
     This function is guesing where SWI-Prolog is
     installed in MacOS via .app.
-    
+
     :parameters:
       -  `swi_ver` (str) - Version of SWI-Prolog in '[0-9].[0-9].[0-9]' format
-      
+
     :returns:
         A tuple of (path to the swipl so, path to the resource file)
 
@@ -336,15 +336,15 @@ def _findSwiplMacOSHome():
     # Need more help with MacOS
     # That way works, but need more work
     names = ['libswipl.dylib', 'libpl.dylib']
-    
+
     path = os.environ.get('SWI_HOME_DIR')
     if path is None:
         path = os.environ.get('SWI_LIB_DIR')
         if path is None:
             path = os.environ.get('PLBASE')
-            if path is None:                
+            if path is None:
                 path = '/Applications/SWI-Prolog.app/Contents/'
-    
+
     paths = [path]
 
     for name in names:
@@ -418,7 +418,7 @@ def _findSwipl():
 
     elif platform == "dar":  # Help with MacOS is welcome!!
         (path, swiHome) = _findSwiplDar()
-        
+
         if path is None:
             (path, swiHome) = _findSwiplMacOSHome()
 
@@ -1169,9 +1169,9 @@ PL_put_variable = _lib.PL_put_variable
 PL_put_variable.argtypes = [term_t]
 PL_put_variable.restype = None
 
-PL_put_integer = _lib.PL_put_integer
-PL_put_integer.argtypes = [term_t, c_long]
-PL_put_integer.restype = None
+PL_put_float = _lib.PL_put_float
+PL_put_float.argtypes = [term_t, c_double]
+PL_put_float.restype = None
 
 PL_put_functor = _lib.PL_put_functor
 PL_put_functor.argtypes = [term_t, functor_t]

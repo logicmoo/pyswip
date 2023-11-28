@@ -391,7 +391,7 @@ def putTerm(term, value):
     elif isinstance(value, Functor):
         PL_put_functor(term, value.handle)
     else:
-        raise Exception("Not implemented")
+        raise Exception(f"Not implemented {type(value)}={value}")
 
 
 def putList(l, ls):
